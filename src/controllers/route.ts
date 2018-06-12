@@ -13,8 +13,8 @@ import { NextFunction } from 'connect';
 export const index = (req: Request, res: Response, next: NextFunction) => {
     const inputParams = {
         uuid: uuid(),
-        routeStart: [...JSON.parse(req.body.dropoffs)[0]],
-        dropoffs: JSON.parse(req.body.dropoffs)
+        routeStart: [...(req.body)[0]],
+        dropoffs: req.body
     };
 
     const wayPoints = inputParams.dropoffs.slice(1);

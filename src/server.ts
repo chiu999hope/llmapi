@@ -87,8 +87,9 @@ app.post('/:controller', (req: Request, res: Response, next: NextFunction) => {
  * Error handler
  */
 app.use(function(err: Error, req: Request, res: Response, next: NextFunction) {
+  console.error(err);
     res.status(500).send({
-      error: err
+      error: err.toString()
   });
 });
 

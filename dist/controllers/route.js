@@ -12,8 +12,8 @@ const route_1 = require("../models/route");
 exports.index = (req, res, next) => {
     const inputParams = {
         uuid: uuid(),
-        routeStart: [...JSON.parse(req.body.dropoffs)[0]],
-        dropoffs: JSON.parse(req.body.dropoffs)
+        routeStart: [...(req.body)[0]],
+        dropoffs: req.body
     };
     const wayPoints = inputParams.dropoffs.slice(1);
     // send token to client before calcuate the route
